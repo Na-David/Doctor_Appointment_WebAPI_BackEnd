@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Doctor_Appointment_WebAPI_BackEnd.Data;
 
 namespace Doctor_Appointment_WebAPI_BackEnd
 {
@@ -32,6 +34,9 @@ namespace Doctor_Appointment_WebAPI_BackEnd
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Doctor_Appointment_WebAPI_BackEnd", Version = "v1" });
             });
+
+            services.AddDbContext<Doctor_Appointment_WebAPI_BackEndContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Doctor_Appointment_WebAPI_BackEndContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
