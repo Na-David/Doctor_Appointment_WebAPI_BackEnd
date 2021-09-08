@@ -17,5 +17,7 @@ namespace Doctor_Appointment_WebAPI_BackEnd.Data
         public DbSet<Doctor_Appointment_WebAPI_BackEnd.Models.Doctor_Details> Doctor_Details { get; set; }
 
         public DbSet<Doctor_Appointment_WebAPI_BackEnd.Models.Patient_Details> Patient_Details { get; set; }
+
+        public DbSet<Doctor_Appointment_WebAPI_BackEnd.Models.Appointment_Details> Appointment_Details { get; set; }
     }
 }
